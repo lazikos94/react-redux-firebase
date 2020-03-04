@@ -15,7 +15,7 @@ const Navbar = (props)=>{
             </div>
         </nav>  
     )
-}
+};
 
 const mapStateToProps = (state)=>{
     console.log(state)
@@ -23,6 +23,6 @@ const mapStateToProps = (state)=>{
         auth: state.firebase.auth,
         profile: state.firebase.profile
     }
-}
+};
 
 export default connect(mapStateToProps)(Navbar);

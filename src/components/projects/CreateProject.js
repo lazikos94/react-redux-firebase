@@ -6,11 +6,17 @@ import {Redirect} from 'react-router-dom'
 export class CreateProject extends Component {
     state = {
         title:'',
-        content:''
+        content:'',
+        priority:''
     }
     handleChange = (e)=>{
         this.setState({
             [e.target.id]: e.target.value
+        })
+    }
+    handleRadioButtons = (e)=>{
+        this.setState({
+            priority: e.target.value
         })
     }
     handleSubmit = (e)=>{
@@ -35,6 +41,27 @@ export class CreateProject extends Component {
                     <div className="input-field">
                         <label htmlFor="content">Project Content</label>
                         <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
+                    </div>
+                    <div>
+                        <p className="grey-text">Priority</p>
+                        <div className="radio">
+                            <label>
+                                <input className="with-gap" name="group1" type="radio" value="Low" onChange={this.handleRadioButtons}/>
+                                <span>Low</span>
+                            </label>
+                        </div>
+                        <div className="radio">
+                            <label>
+                                <input className="with-gap" name="group1" type="radio" value="Medium" onChange={this.handleRadioButtons}/>
+                                <span>Medium</span>
+                            </label>
+                        </div>
+                        <div className="radio">
+                            <label>
+                                <input className="with-gap" name="group1" type="radio" value="High" onChange={this.handleRadioButtons}/>
+                                <span>High</span>
+                            </label>
+                        </div>
                     </div>
                     <div className="input-field">
                         <button className="btn pink lighten-1 z-depth-0">Create</button>
